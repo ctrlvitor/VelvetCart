@@ -1,26 +1,150 @@
 @import "tailwindcss";
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: 'Raleway', sans-serif;
+  color: #fff;
+  background-color: #101010;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
+  transition: background-color 0.4s, color 0.4s;
+  color-scheme: light dark;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+
+
+img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@keyframes neonGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 1px rgba(168,85,247,0.2)) drop-shadow(0 0 2px rgba(192,132,252,0.15)) drop-shadow(0 0 3px rgba(232,121,249,0.15));
+  }
+  50% {
+    filter: drop-shadow(0 0 1px rgba(168,85,247,0.25)) drop-shadow(0 0 3px rgba(192,132,252,0.2)) drop-shadow(0 0 4px rgba(232,121,249,0.2));
   }
 }
 
+.animate-neonGlow {
+  animation: neonGlow 3.5s ease-in-out infinite;
+}
+
+
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
+
+html.dark {
+  @apply bg-zinc-950 text-white;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply font-[Raleway] transition-colors duration-300;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Scrollbar para navegadores WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111; /* trilha escura */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #444, #222); /* efeito moderno */
+  border-radius: 10px;
+  border: 2px solid #111; /* espaço entre thumb e track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #555, #333);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #444 #111;
+}
+
+@media (max-width: 768px) {
+  body {
+    overflow: auto; /* ainda permite rolagem */
+    -ms-overflow-style: none;  /* IE e Edge antigos */
+    scrollbar-width: none;     /* Firefox */
+  }
+
+  body::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Edge (novos) */
+    width: 0;
+    height: 0;
+  }
+}
+
+@font-face {
+  font-family: "Caveat";
+  src: url("/fonts/Caveat/Caveat-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Playwrite";
+  src: url("/fonts/Playwrite_AU_SA/PlaywriteAUSA-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Quintessential";
+  src: url("/fonts/Quintessential/Quintessential-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Raleway";
+  src: url("/fonts/Raleway/Raleway-VariableFont_wght.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Special_Gothic";
+  src: url("/fonts/Special_Gothic/SpecialGothicExpandedOne-Regular.ttf") format("truetype");
+  font-display: swap;
+}
+
+#__next [aria-label="Vercel Logo"],
+#__next > div[style*="position:fixed"][style*="bottom"][style*="left"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  z-index: -999 !important;
 }
