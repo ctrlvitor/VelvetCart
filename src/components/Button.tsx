@@ -1,11 +1,12 @@
 'use client'
-import { motion } from '@/lib/motion'
+import React from 'react'
+import { motion, HTMLMotionProps } from 'framer-motion'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends Omit<HTMLMotionProps<'button'>, 'ref'> {
   children: React.ReactNode
 }
 
-export default function Button({ children, ...props }: ButtonProps): JSX.Element {
+export default function Button({ children, ...props }: ButtonProps): React.ReactElement {
   return (
     <motion.button
       whileHover={{ scale: 1.05 }}

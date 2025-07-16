@@ -12,7 +12,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <div className="flex justify-center items-center h-[160px] w-full mb-2">
           <div className="relative w-[150px] h-[150px]">
             <Image
-              src={product.image || '../favicon.ico'}
+              src={product.image || '/favicon.ico'}
               alt={product.title}
               fill
               className="object-contain"
@@ -22,7 +22,7 @@ export default function ProductCard({ product }: { product: Product }) {
           </div>
         </div>
 
-        <h3 className="text-sm font-[600] text-gray-900 line-clamp-2 min-h-[2.6rem] mb-1 group-hover:underline transition-all">
+        <h3 className="text-sm font-semibold text-gray-900 line-clamp-2 min-h-[2.6rem] mb-1 group-hover:underline transition-all">
           {product.title}
         </h3>
 
