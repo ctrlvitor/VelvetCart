@@ -6,7 +6,9 @@ import { motion } from '@/lib/motion'
 import ProductCard from '@/components/ProductCard'
 import { Product } from '@/types'
 
-export default function SearchClient() {
+interface SearchResultsProps {}
+
+export default function SearchResults({}: SearchResultsProps) {
   const searchParams = useSearchParams()
   const queryParam = searchParams?.get('query') || ''
   const query = queryParam.toLowerCase()
@@ -34,7 +36,7 @@ export default function SearchClient() {
   }, [query])
 
   return (
-    <motion.main
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -63,6 +65,6 @@ export default function SearchClient() {
           ))}
         </motion.div>
       )}
-    </motion.main>
+    </motion.div>
   )
 }
