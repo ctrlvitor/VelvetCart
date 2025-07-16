@@ -2,25 +2,8 @@ import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   devIndicators: false,
-  ignoreDuringBuilds: true,
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'fakestoreapi.com',
-        pathname: '/img/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'via.placeholder.com',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.pexels.com',
-        pathname: '/**',
-      },
-    ],
+  eslint: {
+    ignoreDuringBuilds: true,
   },
 }
 
